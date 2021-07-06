@@ -1,0 +1,228 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+.control-sidebar-open .control-sidebar {
+    right: auto;
+    left: 0;
+    display: block;
+}
+
+//! data-table
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    left: 0.5em !important;
+    right: auto !important;
+}
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+    left: 1em !important;
+    right: auto !important;
+}
+.table-hover thead.table-dark:hover {
+    &:hover {
+        background-color: #212529 !important;
+    }
+}
+//! end-data-table
+// @media (min-width: 768px) {
+//     .sidebar-mini.sidebar-collapse .main-sidebar,
+//     .sidebar-mini.sidebar-collapse .main-sidebar::before {
+//         margin-left: 0;
+//         width: 4.6rem;
+//     }
+// }
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar-collapse .main-sidebar,
+    .sidebar-collapse .main-sidebar::before {
+        margin-right: -250px;
+        margin-left: auto;
+    }
+    .sidebar-collapse .content-wrapper,
+    .sidebar-collapse .main-footer,
+    .sidebar-collapse .main-header {
+        margin-right: 0;
+    }
+}
+
+table thead th,
+table tbody td {
+    white-space: nowrap;
+}
+
+.text-sm {
+    font-size: 12px;
+}
+
+.hijri-input-picker {
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: 0rem 0rem 0rem 0.05rem rgb(96, 176, 247);
+}
+.hijri-input-picker.active {
+    box-shadow: 0.02rem 0.02rem 0.3rem 0rem rgb(96, 176, 247);
+    border: 0.09rem rgb(96, 176, 247);
+}
+.hijri-calender-picker {
+    position: absolute;
+    z-index: 999;
+    /* height: 300px; */
+    top: 35px;
+    display: none;
+    width: 344px;
+    background-color: #fff;
+    box-shadow: 0.02rem 0.02rem 0.4rem 0rem #ccc;
+    border-radius: 0.4rem;
+    padding: 0 16px;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header .calender-title {
+    margin: 0;
+    text-align: center;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header .calender-title .year {
+    color: #555;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header .calender-title .month {
+    color: #333;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header .calender-prevBtn,
+.hijri-calender-picker .calender-header .calender-nextBtn {
+    cursor: pointer;
+    color: #888;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-header .calender-prevBtn:hover,
+.hijri-calender-picker .calender-header .calender-nextBtn:hover {
+    color: #333;
+    direction: ltr !important;
+}
+
+.hijri-calender-picker .week-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    margin: 0;
+    direction: ltr !important;
+}
+.hijri-calender-picker .week-wrapper .day-of-week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    border-radius: 50%;
+    transform: rotate(-35deg);
+    direction: ltr !important;
+}
+
+.hijri-calender-picker .calender-body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 0 16px;
+    direction: ltr !important;
+    /* flex-direction: row-reverse; */
+}
+.hijri-calender-picker .calender-body .calender-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-body .calender-day .hijri-day {
+    font-size: 10px;
+    direction: ltr !important;
+}
+.hijri-calender-picker
+    .calender-body
+    .calender-day:not(.active):not(.current-day)
+    .hijri-day {
+    color: #666;
+    direction: ltr !important;
+}
+.hijri-calender-picker .calender-body .calender-day:hover {
+    background-color: rgb(216, 211, 211);
+}
+.hijri-calender-picker .calender-body .calender-day.current-day:not(.active) {
+    background-color: rgb(240, 73, 44);
+    color: #fff;
+}
+.hijri-calender-picker .calender-body .calender-day.active {
+    background-color: rgb(37, 140, 228);
+    color: #fff;
+}
+
+.hijri-calender-picker .footer-wrapper {
+    margin: 0;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #ccc;
+    direction: ltr !important;
+    /* flex-direction: row-reverse; */
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn {
+    border: none;
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    direction: ltr !important;
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.reset-btn {
+    background-color: rgb(240, 73, 44);
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.close-btn {
+    background-color: rgb(37, 140, 228);
+    margin: 0 8px;
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.reset-btn:focus {
+    box-shadow: 0.02rem 0.02rem 0.3rem 0rem rgb(243, 129, 108);
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.close-btn:focus {
+    box-shadow: 0.02rem 0.02rem 0.3rem 0rem rgb(96, 176, 247);
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.reset-btn:hover {
+    background-color: rgb(204, 67, 43);
+}
+
+.hijri-calender-picker .footer-wrapper .footer-btn.close-btn:hover {
+    background-color: rgb(34, 114, 184);
+}
