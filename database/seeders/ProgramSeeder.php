@@ -13,6 +13,6 @@ class ProgramSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Program::factory(100)->create();
     }
 }

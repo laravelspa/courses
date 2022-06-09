@@ -13,6 +13,6 @@ class TableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Table::factory(100)->create();
     }
 }

@@ -12,9 +12,6 @@ use App\Models\Event;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,86 +22,6 @@ use Illuminate\Support\Facades\Hash;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/roles', function () {
-    Role::create(["name" => User::R_OWNER]);
-    Role::create(["name" => User::R_ADMIN]);
-    Role::create(["name" => User::R_TEACHER]);
-    Role::create(["name" => User::R_GUEST]);
-
-    $permission1 = Permission::create(['name' => User::P_VIEW_COURSE]);
-    $permission2 = Permission::create(['name' => User::P_ADD_COURSE]);
-    $permission3 = Permission::create(['name' => User::P_EDIT_COURSE]);
-    $permission4 = Permission::create(['name' => User::P_DELETE_COURSE]);
-
-    $permission1 = Permission::create(['name' => User::P_VIEW_PROGRAM]);
-    $permission2 = Permission::create(['name' => User::P_ADD_PROGRAM]);
-    $permission3 = Permission::create(['name' => User::P_EDIT_PROGRAM]);
-    $permission4 = Permission::create(['name' => User::P_DELETE_PROGRAM]);
-
-    $permission5 = Permission::create(['name' => User::P_VIEW_TABLE]);
-    $permission6 = Permission::create(['name' => User::P_ADD_TABLE]);
-    $permission7 = Permission::create(['name' => User::P_EDIT_TABLE]);
-    $permission8 = Permission::create(['name' => User::P_DELETE_TABLE]);
-
-    $permission9 = Permission::create(['name' =>  User::P_VIEW_USER]);
-    $permission10 = Permission::create(['name' => User::P_ADD_USER]);
-    $permission11 = Permission::create(['name' => User::P_EDIT_USER]);
-    $permission12 = Permission::create(['name' => User::P_DELETE_USER]);
-
-    $permission13 = Permission::create(['name' => User::P_VIEW_SETTING]);
-    $permission14 = Permission::create(['name' => User::P_ADD_SETTING]);
-    $permission15 = Permission::create(['name' => User::P_EDIT_SETTING]);
-    $permission16 = Permission::create(['name' => User::P_DELETE_SETTING]);
-
-    $permission17 = Permission::create(['name' => User::P_VIEW_EVENT]);
-    $permission18 = Permission::create(['name' => User::P_ADD_EVENT]);
-    $permission19 = Permission::create(['name' => User::P_EDIT_EVENT]);
-    $permission20 = Permission::create(['name' => User::P_DELETE_EVENT]);
-
-    $permission17 = Permission::create(['name' => User::P_VIEW_STUDENT]);
-    $permission18 = Permission::create(['name' => User::P_ADD_STUDENT]);
-    $permission19 = Permission::create(['name' => User::P_EDIT_STUDENT]);
-    $permission20 = Permission::create(['name' => User::P_DELETE_STUDENT]);
-
-    $owner = Role::findByName('owner');
-    $owner->syncPermissions(User::P_DEFAULT_OWNER);
-    $admin = Role::findByName('admin');
-    $admin->syncPermissions(User::P_DEFAULT_ADMIN);
-    $teacher = Role::findByName('teacher');
-    $teacher->syncPermissions(User::P_DEFAULT_TEACHER);
-
-    $userOwner = User::create([
-        'firstname' => 'firstname',
-        'lastname' => 'lastname',
-        'name' => 'owner',
-        'phone' => '12345678901',
-        'active' => 1,
-        'password' => Hash::make('12341234')
-    ]);
-    $userOwner->syncRoles($owner);
-
-    $userTeacher = User::create([
-        'firstname' => 'firstname',
-        'lastname' => 'lastname',
-        'name' => 'teacher',
-        'phone' => '12345678901',
-        'password' => Hash::make('12341234')
-    ]);
-    $userTeacher->syncRoles($teacher);
-
-    $userAdmin = User::create([
-        'firstname' => 'firstname',
-        'lastname' => 'lastname',
-        'name' => 'admin',
-        'phone' => '12345678901',
-        'password' => Hash::make('12341234')
-    ]);
-    $userAdmin->syncRoles($admin);
-});
-
-
-
 Route::middleware(['auth'])->group(function () {
     // Dashboard Homepage 
     // Fix Register Access If User Not have Role
