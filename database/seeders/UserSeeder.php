@@ -47,6 +47,6 @@ class UserSeeder extends Seeder
         $teacher = Role::findByName('teacher');
         $userTeacher->syncRoles($teacher);
 
-        \App\Models\User::factory(100)->create();
+        User::factory(100)->create();
     }
 }
